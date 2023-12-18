@@ -2,6 +2,12 @@
 name = "rapier-egui"
 version = "0.1.0"
 edition = "2021"
+description = "Rapier state inspector via Egui"
+license = "MIT"
+documentation = "https://docs.rs/rapier-egui"
+repository = "https://github.com/kvark/rapier-egui"
+keywords = ["physics", "egui"]
+categories = ["development-tools", "GUI"]
 
 [dependencies]
 egui = "0.23"
