@@ -1,5 +1,9 @@
 name: Check
-on: [pull_request]
+on:
+  push:
+    branches: ["main"]
+    tags: [v0.*]
+  pull_request:
 
 jobs:
   test-msrv:
