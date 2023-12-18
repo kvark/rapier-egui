@@ -7,7 +7,7 @@ license = "MIT"
 documentation = "https://docs.rs/rapier-egui"
 repository = "https://github.com/kvark/rapier-egui"
 keywords = ["physics", "egui"]
-categories = ["development-tools", "GUI"]
+categories = ["development-tools", "gui", "simulation"]
 
 [dependencies]
 egui = "0.23"
