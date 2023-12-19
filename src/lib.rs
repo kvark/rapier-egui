@@ -58,8 +58,9 @@ impl Inspector {
         rigid_bodies: &mut rapier3d::dynamics::RigidBodySet,
         colliders: &mut rapier3d::geometry::ColliderSet,
     ) {
-        for (handle, _object) in rigid_bodies.iter() {
-            ui.selectable_value(&mut self.selected_rigid_body, Some(handle), "rigid body");
+        for (handle, object) in rigid_bodies.iter() {
+            let name = format!("{:?}", object.body_type());
+            ui.selectable_value(&mut self.selected_rigid_body, Some(handle), name);
         }
 
         if let Some(rb_handle) = self.selected_rigid_body {
@@ -92,9 +93,10 @@ impl Inspector {
                     });
                 });
             ui.heading("Colliders");
-            for &collider in rigid_body.colliders() {
-                let name = "collider";
-                ui.selectable_value(&mut self.selected_collider, Some(collider), name);
+            for &c_handle in rigid_body.colliders() {
+                let collider = &colliders[c_handle];
+                let name = format!("{:?}", collider.shape().shape_type());
+                ui.selectable_value(&mut self.selected_collider, Some(c_handle), name);
             }
         }
 
